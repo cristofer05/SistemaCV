@@ -17,8 +17,20 @@
 					<input class="form-control" type="text" name="nombre" placeholder="Nombre...">
 				</div>
 				<div class="form-group">
-					<label for="descripcion">Descripcion</label>
-					<input class="form-control" type="text" name="descripcion" placeholder="Descripcion...">
+					<label for="codigo">Codigo</label>
+					<input class="form-control" type="text" name="codigo" placeholder="Codigo...">
+				</div>
+				<div class="form-group">
+					<label for="categoria">Categoria</label>
+					<input class="form-control" type="text" name="categoria" placeholder="Categoria...">
+				</div>
+				<div class="form-group">
+					<label for="stock">Stock</label>
+					<input class="form-control" type="text" name="stock" placeholder="Stock...">
+				</div>
+				<div class="form-group">
+					<label for="imagen">Imagen</label>
+					<input class="form-control" type="text" name="imagen" placeholder="Imagen...">
 				</div>
 			</div>
 			<div class="modal-footer">
