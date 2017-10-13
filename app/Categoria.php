@@ -8,7 +8,7 @@ class Categoria extends Model
 {
     protected $table='categoria';
     protected $primaryKey='idcategoria';
-    protected $timestamps=false;
+    public $timestamps=false;
 
     protected $fillable=[
     	'nombre',

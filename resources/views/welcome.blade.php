@@ -13,8 +13,9 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: #000;
                 color: #636b6f;
+                color: #fff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -81,6 +82,12 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
+                <div class="buttons">
+                    <a href="http://127.0.0.1:8000/almacen/categoria"><button>Admin Panel</button></a>
+                    <br/>
+                    <br/>
+                </div>
+
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>

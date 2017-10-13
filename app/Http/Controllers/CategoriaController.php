@@ -4,16 +4,17 @@ namespace SistemaCV\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use SistemaCV\Http\Request;
+// use SistemaCV\Http\Request;
 use SistemaCV\Categoria;
 use Illuminate\Support\Facades\Redirect;
-use SistemaCV\Http\Request\CategoriaFormRequest;
+use SistemaCV\Http\Requests\CategoriaFormRequest;
 use DB;
 
 class CategoriaController extends Controller
 {
     public function __construct()
     {
+    	
     }
     public function index(Request $request)
     {
@@ -22,7 +23,7 @@ class CategoriaController extends Controller
             $query=trim($request->get('searchText'));
             $categorias=DB::table('categoria')->where('nombre','LIKE','%'.$query.'%')
             ->where ('visibilidad','=','1')
-            ->orderBy('idcategoria','desc')
+            ->orderBy('idcategoria','asc')
             ->paginate(7);
             return view('almacen.categoria.index',["categorias"=>$categorias,"searchText"=>$query]);
         }

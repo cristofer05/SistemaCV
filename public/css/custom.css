@@ -1,0 +1,9 @@
+#not-bold th{
+	font-weight: normal;
+}
+
+p.parrafo-error{
+	color: red;
+	font-weight: bold;
+	text-align: center;
+}
