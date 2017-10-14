@@ -36,7 +36,7 @@
 				<tr>
 					<td>{{$art->idarticulo}}</td>
 					<td>
-						<img src="{{asset('img/articulos/'.$art->imagen)}}" alt="{{$art->nombre}}" height="100px" width="100px" class="img-thumbnail">
+						<img src="{{asset('img/articulos/'.$art->imagen)}}" alt="{{$art->nombre}}" height="50px" width="50px" class="img-thumbnail">
 					</td>
 					<td>{{$art->nombre}}</td>
 					<td>{{$art->codigo}}</td>
