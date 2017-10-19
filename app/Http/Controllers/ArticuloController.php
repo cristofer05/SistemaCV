@@ -28,7 +28,9 @@ class ArticuloController extends Controller
             ->orwhere('a.codigo','LIKE','%'.$query.'%')
             ->orderBy('a.idarticulo','desc')
             ->paginate(7);
-            return view('almacen.articulo.index',["articulos"=>$articulos,"searchText"=>$query]);
+
+            $categorias=DB::table('categoria')->where('visibilidad','=','1')->get();
+            return view('almacen.articulo.index',["articulos"=>$articulos,"searchText"=>$query,"categorias"=>$categorias]);
         }
     }
     public function create()
