@@ -1,7 +1,7 @@
 <div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" id="modal-nuevo">
 <!--<div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog"  tabindex="-1" id="modal-nuevo"> -->
 	<h3>Nuevo Articulo</h3>
-	{!!Form::open(array('url'=>'almacen/articulo','method'=>'POST','autocomplete'=>'off','file'=>'true'))!!}
+	{!!Form::open(array('url'=>'almacen/articulo','method'=>'POST','autocomplete'=>'off','file'=>'true','enctype'=>'multipart/form-data'))!!}
 	{{Form::token()}}
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -38,22 +38,46 @@
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<div class="form-group">
-						<label for="stock">Stock</label>
-						<input class="form-control" type="number" name="stock" placeholder="Stock..." value="{{old('stock')}}" required>
-					</div>
+							<label for="stock">Stock</label>
+							<input class="form-control" type="number" name="stock" placeholder="Stock..." value="{{old('stock')}}" required>
+						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						
+						<div class="form-group">
+							<label for="descripcion">Descripción</label>
+							<input class="form-control" type="text" name="descripcion" placeholder="Descripcion..." value="{{old('descripcion')}}">
+						</div>
 					</div>	
-				</div>
-					
-					
-					
-					
-					<div class="form-group">
-						<label for="imagen">Imagen</label>
-						<input class="form-control" type="text" name="imagen" placeholder="Imagen...">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="form-group">
+							<label for="imagen">Imagen</label>
+							<input class="form-control" type="file" name="imagen">
+						</div>
+					</div>	
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="btn-group">
+							<label id="label-condicion">Condición</label>
+							<input class="form-control" type="radio" id="radio1" name="condicion" value="new" checked>
+						       <label for="radio1">New</label>
+						    <input class="form-control" type="radio" id="radio2" name="condicion" value="open">
+						       <label for="radio2">Like New</label> 
+						    <input class="form-control" type="radio" id="radio3" name="condicion"value="ga">
+						       <label for="radio3">Grado A</label>
+						    <input class="form-control" type="radio" id="radio4" name="condicion" value="gb">
+						       <label for="radio4">Grado B</label> 
+						    <input class="form-control" type="radio" id="radio5" name="condicion" value="gc">
+						       <label for="radio5">Grado C</label> 
+						    <input class="form-control" type="radio" id="radio6" name="condicion" value="re">
+						       <label for="radio6">Refurbished</label> 
+						    <input class="form-control" type="radio" id="radio7" name="condicion" value="malo">
+						       <label for="radio7">Malo</label> 
+						</div>
+						
 					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<img src="{{asset('img/articulos/no-stock.png')}}" alt="" height="200px" width="200px">
+					</div>
+				</div>		
 			</div>
 			<div class="modal-footer">
 				<div class="form-group">

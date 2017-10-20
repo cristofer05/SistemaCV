@@ -25,11 +25,11 @@ class ArticuloFormRequest extends FormRequest
     {
         return [
             'idcategoria'=>'required',
-            'codigo'=>'required|max:50'
-            'nombre'=>'required|max:100'
+            'codigo'=>'required|max:50',
+            'nombre'=>'required|max:100',
             'stock'=>'required|numeric',
             'descripcion'=>'max:512',
-            'imagen'=>'mimes:jpg,jpeg,bmp,png'
+            'imagen'=>'mimes:jpg,bmp,png'
         ];
     }
 }
