@@ -17,7 +17,7 @@
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<div class="form-group">
 							<label for="codigo">Barcode</label>
-							<input class="form-control" type="text" name="codigo" placeholder="Codigo..." value="{{old('codigo')}}" required autofocus>
+							<input class="form-control" id="q" type="text" name="codigo" placeholder="Codigo..." value="{{old('codigo')}}" required autofocus onkeypress="return pulsar(event)">
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -90,3 +90,30 @@
 	{!!Form::close()!!}
 </div>
 
+<script type="text/javascript">
+
+function pulsar(e) { 
+  tecla = (document.all) ? e.keyCode :e.which; 
+  if (tecla==13){
+  	var text = document.getElementById("q");
+  	alert("Barcode: -> " + text.value);
+  	/////////////
+  	var q= $("#q").val();
+  	var parametros={'action':'ajax','page':page,'q':q,'id_categoria':id_categoria};
+  	$("#loader").fadeIn('slow');
+			$.ajax({
+				data: parametros,
+				url:'./ajax/buscar_productos.php',
+				 beforeSend: function(objeto){
+				 $('#loader').html('<img src="./img/ajax-loader.gif"> Cargando...');
+			  },
+				success:function(data){
+					$(".outer_div").html(data).fadeIn('slow');
+					$('#loader').html('');
+					
+				}
+			})
+  } 
+}
+
+</script>
