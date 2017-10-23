@@ -1,6 +1,6 @@
 <?php 
-// Conexion a la base de datos
-$con = mysqli_connect("localhost","root","","dbsistemacv");
+// Conexion a la base de datos (* dbventaslaravel / dbsistemacv *)
+$con = mysqli_connect("localhost","root","","dbventaslaravel");
     if(!$con){
         die("imposible conectarse: ".mysqli_error($con));
     }
@@ -13,6 +13,7 @@ $nombre="";
 $categoria="";
 $stock="";
 $nomcategoria="";
+$existe="no";
 ///////////////////////////////
 
 $action = $_REQUEST['action'];
@@ -27,6 +28,7 @@ while ($row=mysqli_fetch_array($query)){
 	$nombre=$row['nombre'];
 	$categoria=$row['idcategoria'];
 	$stock=$row['stock'];
+	$existe="si";
 }
 
 if (isset($categoria)) {
@@ -64,7 +66,7 @@ if (isset($categoria)) {
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 	<div class="form-group">
-		<label for="stock">Stock</label>
+		<label for="stock">Cantidad</label>
 		<input class="form-control" type="number" name="stock" placeholder="Stock..." value="<?php echo $stock;?>" required>
 	</div>
 </div>
@@ -102,19 +104,24 @@ if (isset($categoria)) {
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 	<div class="btn-group">
 		<label id="label-missing">Missing</label>
-		<input class="form-control" type="radio" id="mradio0" name="missing" value="nada" checked>
+		<input class="form-control" type="checkbox" id="mradio0" name="missing" value="nada" checked>
 	       <label for="mradio0">Nada</label>
-		<input class="form-control" type="radio" id="mradio1" name="missing" value="box">
+		<input class="form-control" type="checkbox" id="mradio1" name="missing" value="box">
 	       <label for="mradio1">Box</label>
-	    <input class="form-control" type="radio" id="mradio2" name="missing" value="manual">
+	    <input class="form-control" type="checkbox" id="mradio2" name="missing" value="manual">
 	       <label for="mradio2">Manual</label> 
-	    <input class="form-control" type="radio" id="mradio3" name="missing"value="wallmount">
+	    <input class="form-control" type="checkbox" id="mradio3" name="missing"value="wallmount">
 	       <label for="mradio3">Wallmount</label>
-	    <input class="form-control" type="radio" id="mradio4" name="missing" value="battery">
+	    <input class="form-control" type="checkbox" id="mradio4" name="missing" value="battery">
 	       <label for="mradio4">Battery</label> 
 	</div>
 </div>
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-	<img src="img/articulos/no-stock.png" alt="" height="100px" width="200px">
+<div class="col-md-6 col-md-offset-3">
+<?php if ($existe=="si") { ?>
+	<img src="/img/articulos/si-stock.png" alt="" height="100px" width="200px">
+<?php }elseif ($existe=="no") { ?>
+	<img src="/img/articulos/no-stock.png" alt="" height="100px" width="200px">
+<?php } ?>
+	
 </div>
 
