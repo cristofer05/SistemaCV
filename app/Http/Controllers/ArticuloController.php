@@ -19,15 +19,21 @@ class ArticuloController extends Controller
     public function index(Request $request)
     {
         if ($request)
-        {
-            $query=trim($request->get('searchText'));
-            $articulos=DB::table('articulo as a')
-            ->join('categoria as c','a.idcategoria','=','c.idcategoria')
-            ->select('a.idarticulo','a.nombre','a.codigo','a.stock','c.nombre as categoria','a.descripcion','a.imagen','a.estado')
-            ->where('a.nombre','LIKE','%'.$query.'%')
-            ->orwhere('a.codigo','LIKE','%'.$query.'%')
-            ->orderBy('a.idarticulo','desc')
-            ->paginate(7);
+        {   if ($request->get('action')=='buscar') {
+                $query=trim($request->get('q'));
+
+            }else{
+                $query=trim($request->get('searchText'));
+            } 
+
+                $articulos=DB::table('articulo as a')
+                ->join('categoria as c','a.idcategoria','=','c.idcategoria')
+                ->select('a.idarticulo','a.nombre','a.codigo','a.stock','c.nombre as categoria','a.descripcion','a.imagen','a.estado')
+                ->where('a.nombre','LIKE','%'.$query.'%')
+                ->orwhere('a.codigo','LIKE','%'.$query.'%')
+                ->orderBy('a.idarticulo','desc')
+                ->paginate(7);
+            
 
             $categorias=DB::table('categoria')->where('visibilidad','=','1')->get();
             return view('almacen.articulo.index',["articulos"=>$articulos,"searchText"=>$query,"categorias"=>$categorias]);
