@@ -58,8 +58,6 @@ function pulsar(e) {
   if (tecla==13){
   	var text = document.getElementById("q");
   	// if (text.value=="") {var text = document.getElementById("q2");}
-  	alert("Barcode: -> " + text.value);
-  	/////////////
   	var q= $("#q").val();
   	var parametros={'action':'buscar','q':q,};
   	$("#loader").fadeIn('slow');

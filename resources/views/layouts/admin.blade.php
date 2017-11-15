@@ -93,8 +93,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i> Artículos</a></li>
-                <li><a href="almacen/categoria"><i class="fa fa-circle-o"></i> Categorías</a></li>
+                <li><a href="articulo"><i class="fa fa-circle-o"></i> Artículos</a></li>
+                <li><a href="categoria"><i class="fa fa-circle-o"></i> Categorías</a></li>
               </ul>
             </li>
             

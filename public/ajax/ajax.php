@@ -1,6 +1,6 @@
 <?php 
 // Conexion a la base de datos (* dbventaslaravel / dbsistemacv *)
-$con = mysqli_connect("localhost","root","","dbventaslaravel");
+$con = mysqli_connect("localhost","root","","dbsistemacv");
     if(!$con){
         die("imposible conectarse: ".mysqli_error($con));
     }
