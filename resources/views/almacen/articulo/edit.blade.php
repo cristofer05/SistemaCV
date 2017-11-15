@@ -89,7 +89,8 @@
 				</div>	
 				<div class="form-group">
 					<button class="btn btn-primary" type="submit">Guardar</button>
-					<button class="btn btn-danger" type="button" onclick="goBack()" data-dismiss="modal">Cancelar</button>
+					<button class="btn btn-warning" type="reset">Descartar</button>
+					<button class="btn btn-danger" onclick="goBack()" type="button">Cancelar</button>
 				</div>
 			{!!Form::close()!!}
 			<script>
